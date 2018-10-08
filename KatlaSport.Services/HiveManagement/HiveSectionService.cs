@@ -59,13 +59,12 @@ namespace KatlaSport.Services.HiveManagement
         /// <summary>
         /// Creates the hive section asynchronous.
         /// </summary>
-        /// <param name="hiveId">The hive identifier.</param>
         /// <param name="createRequest">The create request.</param>
         /// <returns>
         /// HiveSection
         /// </returns>
         /// <exception cref="RequestedResourceHasConflictException">code</exception>
-        public async Task<HiveSection> CreateHiveSectionAsync(int hiveId, UpdateHiveSectionRequest createRequest)
+        public async Task<HiveSection> CreateHiveSectionAsync(UpdateHiveSectionRequest createRequest)
         {
             var dbHiveSections = await _context.Sections.Where(h => h.Code == createRequest.Code).ToArrayAsync();
             if (dbHiveSections.Length > 0)
@@ -74,7 +73,6 @@ namespace KatlaSport.Services.HiveManagement
             }
 
             var dbHive = Mapper.Map<UpdateHiveSectionRequest, DbHiveSection>(createRequest);
-            dbHive.StoreHiveId = hiveId;
             dbHive.CreatedBy = _userContext.UserId;
             dbHive.LastUpdatedBy = _userContext.UserId;
             _context.Sections.Add(dbHive);

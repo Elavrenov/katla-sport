@@ -11,5 +11,13 @@ namespace KatlaSport.Services.HiveManagement
         /// Gets or sets a timestamp when the hive section was updated last time.
         /// </summary>
         public DateTime LastUpdated { get; set; }
+
+        /// <summary>
+        /// Gets or sets the store hive identifier.
+        /// </summary>
+        /// <value>
+        /// The store hive identifier.
+        /// </value>
+        public int StoreHiveId { get; set; }
     }
 }
