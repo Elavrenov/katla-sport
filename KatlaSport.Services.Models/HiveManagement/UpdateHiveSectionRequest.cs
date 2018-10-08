@@ -20,5 +20,13 @@
         /// The code.
         /// </value>
         public string Code { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hive identifier.
+        /// </summary>
+        /// <value>
+        /// The hive identifier.
+        /// </value>
+        public int StoreHiveId { get; set; }
     }
 }
